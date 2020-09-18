@@ -14,13 +14,16 @@
     <img src="<%=movie.moviePoster%>" alt="">
 
   <ul>
-    <li> <%= movie.title %> </li>
-    <li> <%= movie.genres%> </li>
-    <li> <%= movie.rated%> </li>
-    <li> <%= movie.runTime%> mins </li>
-    <li> <%= movie.description%> </li>
-    <li> <%= movie.available === true ? 'Movie is available' : "Movies isn't  available" %> </li>
+    <li> Title: <%= movie.title %> </li>
+    <li> Genres: <%= movie.genres%> </li>
+    <li> Rated: <%= movie.rated%> </li>
+    <li> Run Time: <%= movie.runTime%> mins </li>
+    <li> Description: <%= movie.description%> </li>
+    <li> <%= movie.available === true ? 'Movie is available' : "Movie isn't  available" %> </li>
   </ul>
+  <form class="" action="/movies/<%=movie.id%>/edit" method="GET">
+    <input type="submit" value="Edit">
+  </form>
   </div>
 </div>
   </body>
