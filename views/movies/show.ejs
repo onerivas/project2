@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>dont forget to change this</title>
+  </head>
+  <body>
+<div class="container">
+  <nav>
+    <%- include ('../partials/nav.ejs') %>
+  </nav>
+  <div class="">
+
+    <img src="<%=movie.moviePoster%>" alt="">
+
+  <ul>
+    <li> <%= movie.title %> </li>
+    <li> <%= movie.genres%> </li>
+    <li> <%= movie.rated%> </li>
+    <li> <%= movie.runTime%> mins </li>
+    <li> <%= movie.description%> </li>
+    <li> <%= movie.available === true ? 'Movie is available' : "Movies isn't  available" %> </li>
+  </ul>
+  </div>
+</div>
+  </body>
+</html>

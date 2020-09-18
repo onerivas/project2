@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Movies</title>
+  </head>
+  <body>
+<div class="container">
+  <nav>
+    <%- include ('../partials/nav.ejs') %>
+  </nav>
+  <h1>Movies!</h1>
+  <% for (movie of movies){ %>
+    <div class="">
+    <a href="/movies/<%=movie._id%>">
+      <img src="<%=movie.moviePoster%>" alt="">
+    </a>
+    <ul>
+      <li> <%= movie.title %> </li>
+    </ul>
+    </div>
+  <%}%>
+
+</div>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+<a href="/home">Back To Home</a>
+<ul>
+  <li><a href="/movies">Movies</a></li>
+  <li><a href="/tvShows">TV Shows</a></li>
+  <% if (currentUser) { %>
+    <li> Here's your collection <%= currentUser.username %> </li>
+    <li> <form class="" action="/sessions?_method=DELETE" method="POST">
+      <input type="submit" value="Log Out">
+    </form></li>
+  <% } else { %>
+    <li><a href="/users/new">Sign up</a></li>
+    <li><a href="/sessions/new">Log In</a></li>
+<% } %>
+</ul>
