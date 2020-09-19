@@ -1,14 +1,16 @@
-<a href="/home">Back To Home</a>
-<ul>
-  <li><a href="/movies">Movies</a></li>
-  <li><a href="/tvShows">TV Shows</a></li>
+<nav class='nav navbar-dark bg-dark nav-fill'>
+  <a href="/home" class='nav-link'>Home</a>
+  <a class='nav-link' href="/movies">Movies</a>
+  <a class='nav-link' href="/movies/new"> + Movie</a>
+  <a class='nav-link' href="/tvShows">TV Shows</a>
+  <a class='nav-link' href="/tvShows/new"> + TV Show</a>
   <% if (currentUser) { %>
-    <li> Here's your collection <%= currentUser.username %> </li>
-    <li> <form class="" action="/sessions?_method=DELETE" method="POST">
-      <input type="submit" value="Log Out">
-    </form></li>
+  Here's your collection <%= currentUser.username %>
+  <form class="nav-link" action="/sessions?_method=DELETE" method="POST">
+    <input type="submit" value="Log Out">
+  </form>
   <% } else { %>
-    <li><a href="/users/new">Sign up</a></li>
-    <li><a href="/sessions/new">Log In</a></li>
-<% } %>
-</ul>
+  <a class='nav-link' href="/users/new">Sign up</a>
+  <a class='nav-link' href="/sessions/new">Log In</a>
+  <% } %>
+</nav>

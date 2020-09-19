@@ -1,26 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Movies</title>
-  </head>
-  <body>
-<div class="container">
-  <nav>
-    <%- include ('../partials/nav.ejs') %>
-  </nav>
-  <h1>Movies!</h1>
-  <% for (movie of movies){ %>
-    <div class="">
-    <a href="/movies/<%=movie._id%>">
-      <img src="<%=movie.moviePoster%>" alt="">
-    </a>
-    <ul>
-      <li> <%= movie.title %> </li>
-    </ul>
-    </div>
-  <%}%>
 
+<head>
+  <title>Movies</title>
+</head>
+<%- include ('../partials/head.ejs') %>
+<body>
+  <%- include ('../partials/nav.ejs') %>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- <h1>Movies!</h1> -->
+      <% for (movie of movies){ %>
+        <div class="card text-center text-decoration-none w-25">
+          <a class='text-decoration-none' href="/movies/<%=movie._id%>">
+          <img class='img-fluid card-img-top' src="<%=movie.moviePoster%>" alt="">
+          <p class='font-weight-bold' > <%= movie.title %> </p>
+        </a>
+        </div>
+      <%}%>
+</div>
 </div>
   </body>
 </html>

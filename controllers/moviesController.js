@@ -18,6 +18,16 @@ movies.get('/seed', (req, res) => {
 })
 
 //___________________
+// movies add new
+//___________________
+
+movies.get('/new', (req, res) => {
+  res.render('movies/new.ejs', {currentUser:req.session.currentUser})
+})
+
+
+
+//___________________
 // movies edit
 //___________________
 
@@ -69,6 +79,19 @@ movies.put('/:id', (req,res) => {
     console.log(req.body);
   })
 })
+
+//___________________
+// movies create post
+//___________________
+
+movies.post('/', (req, res) => {
+  req.body.available === 'on' ? req.body.available = true : req.body.available = false
+  Movies.create(req.body, (err, createdMovie) => {
+    console.log(createdMovie);
+    res.redirect('/movies')
+  })
+})
+
 
 //___________________
 // movies Delete

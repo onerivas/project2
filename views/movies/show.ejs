@@ -1,30 +1,35 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>dont forget to change this</title>
-  </head>
-  <body>
-<div class="container">
-  <nav>
-    <%- include ('../partials/nav.ejs') %>
-  </nav>
-  <div class="">
 
-    <img src="<%=movie.moviePoster%>" alt="">
+<head>
+  <%- include ('../partials/head.ejs') %>
+  <title>dont forget to change this</title>
+</head>
 
-  <ul>
-    <li> Title: <%= movie.title %> </li>
-    <li> Genres: <%= movie.genres%> </li>
-    <li> Rated: <%= movie.rated%> </li>
-    <li> Run Time: <%= movie.runTime%> mins </li>
-    <li> Description: <%= movie.description%> </li>
-    <li> <%= movie.available === true ? 'Movie is available' : "Movie isn't  available" %> </li>
-  </ul>
-  <form class="" action="/movies/<%=movie.id%>/edit" method="GET">
-    <input type="submit" value="Edit">
-  </form>
+<body>
+  <%- include ('../partials/nav.ejs') %>
+  <div class="container-fluid fullBackground">
+    <div class='row'>
+      <div class="col-md-4">
+        <img class='img-fluid card-img card-body ' src="<%=movie.moviePoster%>" alt="">
+      </div>
+      <div class=" col-md-8 card-body">
+        <ul class='list-group'>
+          <li class='text-decoration-none'><h2><%= movie.title %></h2> </li>
+          <li class=''><%= movie.rated%> &bull; <%= movie.genres%> &bull; <%= movie.runTime%> Mins </li>
+          <li class=' font-weight-bold'><%= movie.description%> </li>
+          <li class=''> <%= movie.available === true ? 'Movie is available' : "Movie isn't  available" %>
+            <div class="float-right">
+              <form action="/movies/<%=movie.id%>/edit" id='submit' method="GET">
+                <input class="btn-light btn-lg" role='button' type="submit" value="Edit">
+              </form>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
-</div>
-  </body>
+  </div>
+  </div>
+</body>
+
 </html>
