@@ -24,6 +24,7 @@ body{
 p{
   color: white;
   text-decoration: none;
+  margin: 1em 0 ;
 }
 
 .btn-outline-secondary{
@@ -43,6 +44,7 @@ h2{
 li{
   color: white;
   list-style: none;
+  /* margin: .1em; */
 }
 .card{
   background: #343a40;
@@ -57,5 +59,14 @@ li{
 
 .btn-light{
   color: #343a40;
-  border-style: none ;
+  border: .1em solid #343a40  ;
+}
+
+.movieTitle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.col-form-label{
+  color: white;
 }

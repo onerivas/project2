@@ -11,17 +11,17 @@
   <div class="container-fluid fullBackground">
     <div class='row'>
       <div class="col-md-4">
-        <img class='img-fluid card-img card-body ' src="<%=movie.moviePoster%>" alt="">
+        <img class='img-fluid' src="<%=movie.moviePoster%>" alt="">
       </div>
       <div class=" col-md-8 card-body">
         <ul class='list-group'>
           <li class='text-decoration-none'><h2><%= movie.title %></h2> </li>
           <li class=''><%= movie.rated%> &bull; <%= movie.genres%> &bull; <%= movie.runTime%> Mins </li>
-          <li class=' font-weight-bold'><%= movie.description%> </li>
+          <li class=''><%= movie.description%> </li>
           <li class=''> <%= movie.available === true ? 'Movie is available' : "Movie isn't  available" %>
             <div class="float-right">
               <form action="/movies/<%=movie.id%>/edit" id='submit' method="GET">
-                <input class="btn-light btn-lg" role='button' type="submit" value="Edit">
+                <input class="btn-light" role='button' type="submit" value="Edit">
               </form>
           </li>
         </ul>

@@ -4,6 +4,7 @@
   <a class='nav-link' href="/movies/new"> + Movie</a>
   <a class='nav-link' href="/tvShows">TV Shows</a>
   <a class='nav-link' href="/tvShows/new"> + TV Show</a>
+  <a class='nav-link' href="/movies/<%=movie.id%>/edit">Edit</a>
   <% if (currentUser) { %>
   Here's your collection <%= currentUser.username %>
   <form class="nav-link" action="/sessions?_method=DELETE" method="POST">

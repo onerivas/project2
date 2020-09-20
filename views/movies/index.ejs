@@ -11,12 +11,14 @@
     <div class="row">
       <!-- <h1>Movies!</h1> -->
       <% for (movie of movies){ %>
-        <div class="card text-center text-decoration-none w-25">
-          <a class='text-decoration-none' href="/movies/<%=movie._id%>">
+      <div class="card text-center text-decoration-none w-25">
+        <a class='text-decoration-none' href="/movies/<%=movie._id%>">
           <img class='img-fluid card-img-top' src="<%=movie.moviePoster%>" alt="">
-          <p class='font-weight-bold' > <%= movie.title %> </p>
+          <div class="movieTitle">
+            <p class=' justify-content-center'> <%= movie.title %> </p>
+          </div>
         </a>
-        </div>
+      </div>
       <%}%>
 </div>
 </div>

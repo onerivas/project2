@@ -5,35 +5,41 @@
     <title>dont forget to change this</title>
   </head>
   <body>
-<div class="container">
-
     <%- include ('../partials/nav.ejs') %>
-  
-  <div class="">
-    <h1>Edit</h1>
-    <img src="<%=movie.moviePoster%>" alt="">
-    <form class="" action="/movies/<%=movie._id%>?_method=PUT" method="POST">
-      <label for="title">Title:</label>
-      <input type="text" name="title" value="<%=movie.title%>"><br>
-      <label for="description">Description:</label>
-      <input type="text" name="description" value="<%=movie.description%>"><br>
-      <label for="genres">Genres:</label>
-      <input type="text" name="genres" value="<%=movie.genres%>"><br>
-      <label for="rated">Rated:</label>
-      <input type="text" name="rated" value="<%=movie.rated%>"><br>
-      <label for="runTime">Run Time in minutes:</label>
-      <input type="text" name="runTime" value="<%=movie.runTime%>"><br>
-      <label for="moviePoster">Movie Poster URL:</label>
-      <input type="text" name="moviePoster" value="<%=movie.moviePoster%>"><br>
-      <label for="available">Is it available?</label>
-      <input type="checkbox" id='available' name="available"
+<div class="container-fluid fullBackground">
+  <div class="row">
+    <div class="col-md-4">
+    <img class='img-fluid' src="<%=movie.moviePoster%>" alt="">
+    </div>
+    <div class=" col-md-8 card-body">
+    <form class="form-row" action="/movies/<%=movie._id%>?_method=PUT" method="POST">
+      <label class='col-form-label col-sm-2' for="title">Title:</label>
+      <input class="form-control col-sm-10" type="text" name="title" value="<%=movie.title%>"><br>
+      <label class='col-form-label col-sm-2' for="genres">Genres:</label>
+      <input class="form-control col-sm-10" type="text" name="genres" value="<%=movie.genres%>"><br>
+      <label class='col-form-label col-sm-2' for="rated">Rated:</label>
+      <input class="form-control col-sm-10"  type="text" name="rated" value="<%=movie.rated%>"><br>
+      <label class='col-form-label col-sm-2' for="runTime">Run Time: </label>
+      <input class="form-control col-sm-10"  type="text" name="runTime" value="<%=movie.runTime%>"><br>
+      <label class='col-form-label col-sm-2' for="moviePoster">Movie Poster URL:</label>
+      <textarea class="form-control col-sm-10"  type="text" name="moviePoster" rows='5'><%=movie.moviePoster%></textarea><br>
+      <label class='col-form-label col-sm-2' for="description">Description:</label>
+      <textarea class="form-control col-sm-10"  type="textarea" name="description" value="<%=movie.description%>" rows='5'><%=movie.description%></textarea> <br>
+      <label class='col-form-label col-sm-3' for="available">Is it available?</label>
+      <input class="form-control col-sm-8"  type="checkbox" id='available' name="available"
       <%= movie.available === true ? 'checked' : '' %>
-      ><br>
-      <input type="submit" value="Submit Changes">
+      >
+      <br/>
+      <input class="btn-light form-control" type="submit" value="Submit Changes">
+
     </form>
-    <form class="" action="/movies/<%=movie.id%>?_method=DELETE" method="POST">
-      <input type="submit" value="Delete From Collection">
+    <form class="form-row" action="/movies/<%=movie.id%>?_method=DELETE" method="POST">
+      <input class="btn-light form-control" type="submit" value="Delete From Collection">
     </form>
+    <form class="form-row" action="/movies/<%=movie.id%>" method="Get">
+      <input class="btn-light form-control" type="submit" value="Cancel Changes">
+    </form>
+    </div>
   </div>
 </div>
   </body>
