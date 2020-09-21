@@ -1,0 +1,28 @@
+<!DOCTYPE html><!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <%- include ('../partials/head.ejs') %>
+    <title>New User</title>
+  </head>
+  <body>
+<div class="container-fluid fullBackground">
+
+    <%- include ('../partials/nav.ejs') %>
+
+  <div class="card-body">
+    <form class="form-row" action="/users" method="POST">
+      <label class='col-form-label col-sm-2' for="userName">User Name:</label>
+      <input class="form-control col-sm-10"  type="text" name="userName" placeholder='Unique User Name' required><br>
+      <label class='col-form-label col-sm-2' for="firstName">First Name:</label>
+      <input class="form-control col-sm-10"  type="text" name="firstName" placeholder='What should we call you?' required><br>
+      <label class='col-form-label col-sm-2' for="rated">Password: </label>
+      <input class="form-control col-sm-10"  type="password" name="password" placeholder='Keep it secret, keep it safe!' required><br>
+
+      <br>
+      <input class='btn-light form-control' type="submit" value="Create New User">
+    </form>
+
+  </div>
+</div>
+  </body>
+</html>

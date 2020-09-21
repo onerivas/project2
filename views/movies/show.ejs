@@ -16,9 +16,9 @@
       <div class=" col-md-8 card-body">
         <ul class='list-group'>
           <li class='text-decoration-none'><h2><%= movie.title %></h2> </li>
-          <li class=''><%= movie.rated%> &bull; <%= movie.genres%> &bull; <%= movie.runTime%> Mins </li>
+          <li class=''><%= movie.rated%> &bull; <%= movie.genres%> &bull; <%= movie.runTime%> Mins &bull; <strong><%= movie.available === true ? 'Movie is available' : "Movie isn't  available" %></strong></li>
           <li class=''><%= movie.description%> </li>
-          <li class=''> <%= movie.available === true ? 'Movie is available' : "Movie isn't  available" %>
+          <li class=''>
             <div class="float-right">
               <form action="/movies/<%=movie.id%>/edit" id='submit' method="GET">
                 <input class="btn-light" role='button' type="submit" value="Edit">

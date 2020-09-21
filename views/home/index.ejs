@@ -7,9 +7,13 @@
 <body>
   <%- include ('../partials/nav.ejs') %>
   <div class="container">
+  <% if(currentUser) { %>
+    <h1>Welcome <%=currentUser.firstName%> <%=currentUser._id%> </h1>
+  <%} else { %>
+    <h1>Welcome!</h1>
+  <%}%>
 
 
-    <h1>welcome!</h1>
   </div>
 </body>
 </html>

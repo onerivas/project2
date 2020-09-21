@@ -1,0 +1,26 @@
+<!DOCTYPE html><!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <%- include ('../partials/head.ejs') %>
+    <title>Log In</title>
+  </head>
+  <body>
+<div class="container-fluid fullBackground">
+
+    <%- include ('../partials/nav.ejs') %>
+
+  <div class="card-body">
+    <form class="form-row" action="/sessions" method="POST">
+      <label class='col-form-label col-sm-2' for="userName">User Name:</label>
+      <input class="form-control col-sm-10"  type="text" name="userName" placeholder='Your User Name' required><br>
+      <label class='col-form-label col-sm-2' for="password">Password: </label>
+      <input class="form-control col-sm-10"  type="password" name="password" placeholder='Your Password' required><br>
+
+      ><br>
+      <input class='btn-light form-control' type="submit" value="Log In">
+    </form>
+
+  </div>
+</div>
+  </body>
+</html>

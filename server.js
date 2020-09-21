@@ -59,6 +59,10 @@ const moviesController = require('./controllers/moviesController.js');
 app.use('/movies', moviesController);
 // const tvShowsController = require('./controllers/tvShowsController.js');
 // app.use('/tvShows', tvShowsController);
+const usersController = require('./controllers/usersController.js');
+app.use('/users', usersController);
+const sessionsController = require('./controllers/sessionsController.js');
+app.use('/sessions', sessionsController)
 
 
 //___________________

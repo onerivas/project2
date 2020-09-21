@@ -1,14 +1,21 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
-
-const userSchema = new Schema(
-  {
-    username: {type:String, unique: true, required: true},
-    password: String
-  }
-);
+const bcrypt = require('bcrypt');
+const express = require('express');
+const users = express.Router();
+const User = require('../models/users.js');
 
 
-const User = mongoose.model('User', userSchema);
+// user form
+users.get('/new', (req, res) => {
+  res.render('users/new.ejs', {currentUser:req.session.currentUser})
+})
 
-module.exports = User;
+// create a new user
+users.post('/', (req, res) => {
+  req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10))
+  User.create(req.body, (err, createdUser) => {
+    console.log('user was created', createdUser);
+    res.redirect('/')
+  })
+})
+
+module.exports = users
