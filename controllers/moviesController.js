@@ -31,7 +31,7 @@ movies.get('/new', isAuthorized, (req, res) => {
 // movies edit
 //___________________
 
-movies.get('/:id/edit', (req, res) => {
+movies.get('/:id/edit', isAuthorized, (req, res) => {
   Movies.findById(req.params.id, (err, foundMovie) => {
     res.render('movies/edit.ejs', {movie:foundMovie,  currentUser:req.session.currentUser})
   })
@@ -42,7 +42,7 @@ movies.get('/:id/edit', (req, res) => {
 // movies show
 //___________________
 
-movies.get('/:id', (req, res ) => {
+movies.get('/:id', isAuthorized, (req, res ) => {
   Movies.findById(req.params.id, (err, foundMovie) => {
   // Movies.find({user:req.user.id}, (err, foundMovie) => {
     res.render('movies/show.ejs', {
@@ -59,7 +59,7 @@ movies.get('/:id', (req, res ) => {
 
 
 
-movies.get('/', (req, res) => {
+movies.get('/', isAuthorized, (req, res) => {
   Movies.find({user:req.session.currentUser._id}, (err, foundMovies) => {
     console.log(req.session.currentUser);
     console.log(req.session.currentUser._id);
@@ -76,7 +76,18 @@ movies.get('/', (req, res) => {
 //___________________
 
 movies.put('/:id', (req,res) => {
-  req.body.available === 'on' ? req.body.available = true : req.body.available = false
+  req.body.lentOut === 'on' ? req.body.lentOut = true : req.body.lentOut = false
+  req.body = {
+    user: req.session.currentUser._id,
+    title: req.body.title,
+    description: req.body.description,
+    genres: req.body.genres,
+    rated: req.body.rated,
+    runTime: req.body.runTime,
+    moviePoster: req.body.moviePoster,
+    lentOut: req.body.lentOut,
+    lentOutTo: req.body.lentOutTo
+  }
   Movies.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel) => {
     res.redirect(`/movies/${req.params.id}`)
     console.log(req.body);

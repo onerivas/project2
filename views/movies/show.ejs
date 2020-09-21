@@ -16,7 +16,9 @@
       <div class=" col-md-8 card-body">
         <ul class='list-group'>
           <li class='text-decoration-none'><h2><%= movie.title %></h2> </li>
-          <li class=''><%= movie.rated%> &bull; <%= movie.genres%> &bull; <%= movie.runTime%> Mins &bull; <strong><%= movie.available === true ? 'Movie is available' : "Movie isn't  available" %></strong></li>
+          <li class=''><%= movie.rated%> &bull; <%= movie.genres%> &bull; <%= movie.runTime%> Mins &bull; <strong><%= movie.lentOut === true ? 'Movie is Lent Out' : "Movie is Home" %></strong> <% if( movie.lentOutTo){%>
+            &bull; <%=movie.lentOutTo %> Has the movie.
+          <%}%></li>
           <li class=''><%= movie.description%> </li>
           <li class=''>
             <div class="float-right">

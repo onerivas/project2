@@ -25,11 +25,13 @@
       <textarea class="form-control col-sm-10"  type="text" name="moviePoster" rows='5'><%=movie.moviePoster%></textarea><br>
       <label class='col-form-label col-sm-2' for="description">Description:</label>
       <textarea class="form-control col-sm-10"  type="textarea" name="description" value="<%=movie.description%>" rows='5'><%=movie.description%></textarea> <br>
-      <label class='col-form-label col-sm-3' for="available">Is it available?</label>
-      <input class="form-control col-sm-8"  type="checkbox" id='available' name="available"
-      <%= movie.available === true ? 'checked' : '' %>
+      <label class='col-form-label col-sm-3' for="lentOut">Is it lent out?</label>
+      <input class="form-control col-sm-8"  type="checkbox" id='lentOut' name="lentOut"
+      <%= movie.lentOut === true ? 'checked' : '' %>
       >
       <br/>
+      <label class='col-form-label col-sm-2' for="lentOutTo">Who is it lent out to?</label><br>
+      <input class="form-control col-sm-10"  type="text" name="lentOutTo" value='<%=movie.lentOutTo%>'><br>
       <input class="btn-light form-control" type="submit" value="Submit Changes">
 
     </form>
