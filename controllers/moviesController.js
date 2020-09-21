@@ -44,7 +44,6 @@ movies.get('/:id/edit', isAuthorized, (req, res) => {
 
 movies.get('/:id', isAuthorized, (req, res ) => {
   Movies.findById(req.params.id, (err, foundMovie) => {
-  // Movies.find({user:req.user.id}, (err, foundMovie) => {
     res.render('movies/show.ejs', {
       movie:foundMovie,
       currentUser:req.session.currentUser
@@ -61,8 +60,6 @@ movies.get('/:id', isAuthorized, (req, res ) => {
 
 movies.get('/', isAuthorized, (req, res) => {
   Movies.find({user:req.session.currentUser._id}, (err, foundMovies) => {
-    console.log(req.session.currentUser);
-    console.log(req.session.currentUser._id);
     res.render('movies/index.ejs', {
       movies: foundMovies,
       currentUser: req.session.currentUser
@@ -113,11 +110,6 @@ movies.post('/', (req, res) => {
     lentOutTo: req.body.lentOutTo
   }
   Movies.create(req.body, (err, createdMovie) => {
-    // currentUser:req.session.currentUser
-    // req.body.user = currentUser._id
-    console.log(req.session.currentUser.id);
-    console.log(req.body);
-    console.log(createdMovie);
     res.redirect('/movies')
   })
 })

@@ -13,8 +13,11 @@ const isAuthorized = (req, res, next) => {
 // home index
 //___________________
 home.get('/', (req, res) => {
-  res.render('home/index.ejs', {
-    currentUser: req.session.currentUser
+  Movies.find({}, (err, allMovies) => {
+    res.render('home/index.ejs', {
+      currentUser: req.session.currentUser,
+      movies: allMovies
+    })
   })
 })
 
