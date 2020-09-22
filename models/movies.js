@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const User = require('../models/users.js')
 const moviesSchema = new mongoose.Schema(
   {
-  user: {type:mongoose.Schema.Types.ObjectId, ref: 'User' },
+  user: String,
   title: {type:String, required: true},
   description: {type:String, required: true},
   genres: {type: String, required: true},

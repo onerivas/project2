@@ -14,12 +14,14 @@ sessions.post('/', (req, res) => {
       console.log(err);
       res.send('oops the db had a problem')
     } else if (!foundUser){
+    console.log(req.body.username);
+  
       res.send('<a href="/sessions/new">Sorry! No user Found</a>')
     } else {
       if(bcrypt.compareSync(req.body.password, foundUser.password)){
         req.session.currentUser = foundUser
         // console.log(currentUser);
-        console.log(req.session.currentUser.id);
+        console.log(req.session.currentUser._id);
         res.redirect('/')
       } else{
         res.send('<a href="/sessions/new"> password does not match')

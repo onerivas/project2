@@ -59,12 +59,12 @@ movies.get('/:id', isAuthorized, (req, res ) => {
 
 
 movies.get('/', isAuthorized, (req, res) => {
-  Movies.find({user:req.session.currentUser._id}, (err, foundMovies) => {
+  Movies.find({user:req.session.currentUser._id}, null, {sort:{title:-1}}, (err, foundMovies) => {
     res.render('movies/index.ejs', {
       movies: foundMovies,
       currentUser: req.session.currentUser
     })
-  })
+  }).sort({title:1})
 })
 
 
