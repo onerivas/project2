@@ -58,8 +58,23 @@ li{
 }
 
 .btn-light{
-  color: #343a40;
-  border: .1em solid #343a40  ;
+  color: white;
+  background: #343a40;
+  border: .1em solid #343a40;
+  border-radius: .5em;
+}
+
+.btn-light:hover{
+  color: white;
+  background: #343a40;
+  border: .1em solid #343a40;
+  border-radius: .5em;
+}
+.btn-light:active{
+  color: white;
+  background: #343a40;
+  border: .1em solid #343a40;
+  border-radius: .5em;
 }
 
 .movieTitle{

@@ -17,16 +17,15 @@ const PORT = process.env.PORT;
 //___________________
 //Database
 //___________________
-// How to connect to the database either via heroku or locally
+// How to connect to the database via heroku
 const MONGODB_URI = process.env.MONGODB_URI;
 
 // Connect to Mongo &
 // Fix Depreciation Warnings from Mongoose
-// May or may not need these depending on your Mongoose version
 mongoose.connect(MONGODB_URI , { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true, }
 );
 
-// Error / success
+
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
 db.on('connected', () => console.log('mongo connected: ', MONGODB_URI));
 db.on('disconnected', () => console.log('mongo disconnected'));
@@ -35,15 +34,13 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 //Middleware
 //___________________
 
-//use public folder for static assets
+
 app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-// populates req.body with parsed info from forms - if no data from forms will return an empty object {}
-app.use(express.urlencoded({ extended: true }));// extended: false - does not allow nested objects in query strings
-app.use(express.json());// returns middleware that only parses JSON - may or may not need it depending on your project
 
-//use method override
-app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
+app.use(methodOverride('_method'));
 app.use(session({
   secret: process.env.SECRET,
   resave: false,
