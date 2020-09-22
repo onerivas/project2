@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
   <%- include ('../partials/head.ejs') %>
   <title>Home</title>
@@ -7,34 +8,30 @@
 <body>
   <%- include ('../partials/nav.ejs') %>
   <div class="container-fluid">
-
-  <% if(currentUser) { %>
+    <% if(currentUser) { %>
     <div class="text-center">
-    <h4>Welcome <%=currentUser.firstname%>, these are movies that you have lent out.</h4>
-  </div>
+      <h4>Welcome <%=currentUser.firstname%>, these are movies that you have lent out.</h4>
+    </div>
     <div class="row">
-    <% for (movie of movies) {%>
+      <% for (movie of movies) {%>
       <%if(movie.user == currentUser._id && movie.lentOut === true ){%>
-        <div class="card text-center text-decoration-none w-25">
-          <a class='text-decoration-none' href="/movies/<%=movie._id%>">
-            <img class='img-fluid card-img-top' src="<%=movie.moviePoster%>" alt="">
-            <div class="movieTitle">
-              <p class=' justify-content-center'> <%= movie.title %> </p>
-            </div>
-          </a>
-        </div>
+      <div class="card text-center text-decoration-none w-25">
+        <a class='text-decoration-none' href="/movies/<%=movie._id%>">
+          <img class='img-fluid card-img-top' src="<%=movie.moviePoster%>" alt="">
+          <div class="movieTitle">
+            <p class=' justify-content-center'> <%= movie.title %> </p>
+          </div>
+        </a>
+      </div>
       <%}%>
     <%}%>
-  </div>
-  <%} else { %>
+    </div>
+    <%} else { %>
     <div class="text-center">
       <h1>Welcome!</h1>
       <h6>Please Log in to check your collection or Sign up to start a new one.</h6>
-
     </div>
-  <%}%>
-
-
+    <%}%>
   </div>
 </body>
 </html>

@@ -1,7 +1,6 @@
 ## Project 2
 
-[Project]
-(https://safe-castle-33189.herokuapp.com)
+[Project](https://safe-castle-33189.herokuapp.com)
 
 #### Technologies used
 
