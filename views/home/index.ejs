@@ -5,33 +5,52 @@
   <%- include ('../partials/head.ejs') %>
   <title>Home</title>
 </head>
+
 <body>
   <%- include ('../partials/nav.ejs') %>
   <div class="container-fluid">
-    <% if(currentUser) { %>
-    <div class="text-center">
-      <h4>Welcome <%=currentUser.firstname%>, these are movies that you have lent out.</h4>
-    </div>
-    <div class="row">
-      <% for (movie of movies) {%>
-      <%if(movie.user == currentUser._id && movie.lentOut === true ){%>
-      <div class="card text-center text-decoration-none w-25">
-        <a class='text-decoration-none' href="/movies/<%=movie._id%>">
-          <img class='img-fluid card-img-top' src="<%=movie.moviePoster%>" alt="">
-          <div class="movieTitle">
-            <p class=' justify-content-center'> <%= movie.title %> </p>
-          </div>
-        </a>
+    <div class="wrapper">
+      <% if(currentUser) { %>
+      <div class="text-center">
+        <h4>Welcome <%=currentUser.firstname%>, these are movies that you have lent out.</h4>
       </div>
-      <%}%>
+      <div class="row">
+        <% for (movie of movies) {%>
+        <%if(movie.user == currentUser._id && movie.lentOut === true ){%>
+        <div class="card text-center text-decoration-none w-25">
+          <a class='text-decoration-none' href="/movies/<%=movie._id%>">
+            <img class='img-fluid card-img-top' src="<%=movie.moviePoster%>" alt="">
+            <div class="movieTitle">
+              <p class=' justify-content-center'> <%= movie.title %> </p>
+            </div>
+          </a>
+        </div>
+        <%}%>
+        <%}%>
+      </div>
+      <%} else { %>
+      <div class="text-center">
+        <h1>Welcome!</h1>
+        <h6>Please Log in to check your collection or Sign up to start a new one.</h6>
+        <h6>To test out the site please log in with:</h6>
+        <h6>username: test</h6>
+        <h6>password: password</h6>
+        <h6>Delete from Collection feature has been disabled.</h6>
+        <div class="row">
+          <% for (movie of movies) {%>
+          <div class="card text-center text-decoration-none w-25">
+            <img class='img-fluid card-img-top' src="<%=movie.moviePoster%>" alt="">
+            <div class="movieTitle">
+              <p class=' justify-content-center'> <%= movie.title %> </p>
+            </div>
+          </div>
+          <%}%>
+        </div>
+      </div>
     <%}%>
     </div>
-    <%} else { %>
-    <div class="text-center">
-      <h1>Welcome!</h1>
-      <h6>Please Log in to check your collection or Sign up to start a new one.</h6>
-    </div>
-    <%}%>
+    <%- include ('../partials/footer.ejs') %>
   </div>
 </body>
+
 </html>
